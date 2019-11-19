@@ -1,6 +1,16 @@
-# Welcome
-This is my Personal Repository for starter-kits with new projects that come coupled with a React Frontend & Java Spring Boot Backend. It comes with authentication out of the box and comments letting you know what's happening where.
+# Multi User Dungeon
+This is the front end repository for the MUD project showcasing team collaboration & development with complex algorithms.
 
-# LICENSE
 
-for licensing information, I am using an MIT Open Source License.
+
+# Technologies
+
+Technologies used in the front end repo are as follows.
+	React.js (front end library)
+		Redux (state management)
+		React-Router-Dom (Navigation)
+	
+
+# License Information
+
+Open source
