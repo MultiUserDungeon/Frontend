@@ -10,8 +10,8 @@ import {CTOS_URL} from '../AxiosWithAuth';
 
 // for modularity we are going to define some paths for logging in & registration
 // https://doepud.co.uk/blog/anatomy-of-a-url
-const login_path = 'api/login';
-const registration_path = 'api/registration';
+const login_path = 'api/login/';
+const registration_path = 'api/registration/';
 
 // In this file we have 3 Actions, Login, Registration & Logging Out
 
