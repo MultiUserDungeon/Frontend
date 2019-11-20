@@ -11,7 +11,7 @@ export const AxiosWithAuth = () => {
 	return axios.create({
 		headers : {
 			'Content-Type' : 'application/json',
-			'Authorization': `Token ${token}`,
+			Authorization: `Token ${token}`
 		}
 	})
 

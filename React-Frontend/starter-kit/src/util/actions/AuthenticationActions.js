@@ -22,8 +22,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 // We are creating an action for logging in, it takes in data (creds) and sends it to the server for validation. The server returns a 'response'
 export const login = (creds) => (dispatch) => {
-	console.log('hits the login action & passes the credentials to the server for a response')
-	console.log(creds)
+
 	// dispatch gets sent to the reducer that updates the state (basically stating that the LOGIN is Starting)
 	dispatch({
 		type: LOGIN_START,
@@ -34,7 +33,10 @@ export const login = (creds) => (dispatch) => {
 		// This will create a url like this https://something.com/login
 		.post(`${CTOS_URL+login_path}`, creds)
 		.then(response => {
-			localStorage.setItem('token', response.data.token);
+			// logging the response data
+
+			localStorage.setItem('token', response.data.key);
+			console.log(localStorage.getItem.token)
 			dispatch({
 				type: LOGIN_SUCCESS,
 				payload: response.data,
@@ -56,8 +58,6 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE'
 
 // Registration Action
 export const registration = (creds) => (dispatch) => {
-	console.log("below is the creds")
-	console.log(creds)
 
 	dispatch ({
 		type: REGISTER_START,
@@ -67,8 +67,9 @@ export const registration = (creds) => (dispatch) => {
 	return axios
 		.post(`${CTOS_URL+registration_path}`, creds)
 		.then( response => {
-			// If registration was succesful we set a token so the user can be logged in with it
-			localStorage.setItem('token', response.data.token);
+			// If registration was succesful & the server return a token we can set it so the user can be logged in automatically
+			localStorage.setItem('token', response.data.key);
+
 			dispatch({
 				type: REGISTER_SUCCESS,
 				payload: response.data,
