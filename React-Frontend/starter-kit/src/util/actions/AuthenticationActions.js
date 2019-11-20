@@ -10,8 +10,8 @@ import {CTOS_URL} from '../AxiosWithAuth';
 
 // for modularity we are going to define some paths for logging in & registration
 // https://doepud.co.uk/blog/anatomy-of-a-url
-const login_path = '/login';
-const registration_path = '/register';
+const login_path = 'api/login';
+const registration_path = 'api/registration';
 
 // In this file we have 3 Actions, Login, Registration & Logging Out
 
@@ -22,8 +22,8 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 // We are creating an action for logging in, it takes in data (creds) and sends it to the server for validation. The server returns a 'response'
 export const login = (creds) => (dispatch) => {
-	// console.log('hits the login action & passes the credentials to the server for a response')
-	// console.log(creds)
+	console.log('hits the login action & passes the credentials to the server for a response')
+	console.log(creds)
 	// dispatch gets sent to the reducer that updates the state (basically stating that the LOGIN is Starting)
 	dispatch({
 		type: LOGIN_START,
@@ -56,12 +56,14 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE'
 
 // Registration Action
 export const registration = (creds) => (dispatch) => {
-	// console.log(creds)
+	console.log("below is the creds")
+	console.log(creds)
 
 	dispatch ({
 		type: REGISTER_START,
 	})
-
+	
+	console.log(creds)
 	return axios
 		.post(`${CTOS_URL+registration_path}`, creds)
 		.then( response => {

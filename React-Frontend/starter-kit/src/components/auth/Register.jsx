@@ -8,11 +8,10 @@ class Register extends Component {
 	// Local state that get's set by the event handler and used on submit
 	state = {
 		userRegistrationInfo: {
-			fname: '',
-			lname: '',
 			username: '',
 			email: '',
-			password: '',
+			password1: '',
+			password2: '',
 		}
 	}
 
@@ -35,9 +34,6 @@ class Register extends Component {
 		e.preventDefault();
 		// this.props.(whatever action from redux we need to use)
 		this.props.registration(this.state.userRegistrationInfo)
-		.then( () => {
-			this.props.history.push('/RouteChooser')
-		})
 	}
 
 	render() { 
@@ -45,18 +41,17 @@ class Register extends Component {
 			<div className="registration">
 				Registeration page lives here
 				<form className="registration_form" onSubmit={this.handleRegister}>
-					<input type="firstname" name="fname" id="register_fname" onChange={this.handleInput} />
-					<input type="lastname" name="lname" id="register_lname" onChange={this.handleInput} />
 					<input type="username" name="username" id="register_username" onChange={this.handleInput} />
 					<input type="email" name="email" id="register_email" onChange={this.handleInput} />
-					<input type="password" name="password" id="register_password" onChange={this.handleInput} />
+					<input type="password" name="password1" id="register_password1" onChange={this.handleInput} />
+					<input type="password" name="password2" id="register_password2" onChange={this.handleInput} />
 					<input type="submit" name="submit" id="register_submit" onChange={this.handleRegister} />
 				</form>
-				<h3>{this.state.userRegistrationInfo.fname}</h3>
-				<h3>{this.state.userRegistrationInfo.lname}</h3>
+
 				<h3>{this.state.userRegistrationInfo.username}</h3>
 				<h3>{this.state.userRegistrationInfo.email}</h3>
-				<h3>{this.state.userRegistrationInfo.password}</h3>
+				<h3>{this.state.userRegistrationInfo.password1}</h3>
+				<h3>{this.state.userRegistrationInfo.password2}</h3>
 			</div>
 		);
 	}
