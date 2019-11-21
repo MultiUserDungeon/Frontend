@@ -9,6 +9,7 @@ import {
 } from '../actions/AuthenticationActions'
 
 const initialState = {
+	fuck: 1222,
 	// Initial State for Loggin In
 	loggingIn: false,
 	loggedIn: false,
@@ -17,7 +18,7 @@ const initialState = {
 	// Initial State for Registering
 	registering: false,
 	registered: false,
-	registerationError: false,
+	registerationError: '',
 
 	// Initial State for holding user credentials, account information and anything else
 	user: {},

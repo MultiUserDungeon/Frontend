@@ -33,15 +33,16 @@ export const login = (creds) => (dispatch) => {
 		// This will create a url like this https://something.com/login
 		.post(`${CTOS_URL+login_path}`, creds)
 		.then(response => {
-			// logging the response data
-
 			localStorage.setItem('token', response.data.key);
+			
+			// logging the response data
 			console.log(localStorage.getItem.token)
+
 			dispatch({
 				type: LOGIN_SUCCESS,
 				payload: response.data,
 			})
-			localStorage.setItem('user', response.data.artistId)
+			// localStorage.setItem('user', response.data.artistId)
 		})
 		.catch(error =>{
 			console.log('login error: ', error)
@@ -89,6 +90,7 @@ export const LOGOUT = 'LOGOUT';
 // This clears local storage and dispatches the LOGOUT action
 // https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
 export const logout = () => (dispatch) => {
+	console.log('logouttttttttttttttttttt')
 	localStorage.clear();
 	dispatch({
 		type: LOGOUT,

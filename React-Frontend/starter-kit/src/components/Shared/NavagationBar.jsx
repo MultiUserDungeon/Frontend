@@ -1,15 +1,33 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
+import {withRouter, Link, NavLink} from "react-router-dom";
+import {logout} from '../../util/actions/AuthenticationActions';
 
-const NavagationBar = () => {
-	return (
+function NavagationBar (props) {
+	console.log(props)
+
+	return(
 		<div className="navagation_bar">
-			Navagation Bar lives here. If youre logged in it will show something and if youre logged out youll see some buttons to log-in
-			<Link to="/"> home </Link>
-			<Link to="/login"> login </Link>
-			<Link to="/register"> register </Link>
+			{ props.loggedIn ? (
+				// If loggedIn === true
+				<div className="private_nav">
+					<NavLink to='/' className='navlink' onClick={props.logout}> Logout </NavLink>
+				</div>
+			):(
+				// if loggedIn === false
+				<div className="public_nav">
+					Navagation Bar lives here. If youre logged in it will show something and if youre logged out youll see some buttons to log-in
+					<Link to="/"> home </Link>
+					<Link to="/login"> login </Link>
+					<Link to="/register"> register </Link>
+				</div>				
+			)}
 		</div>
-	);
+	)
 }
- 
-export default NavagationBar;
+
+const mapStateToProps = (state) => ({
+	loggedIn: state.AuthenticationReducer.loggedIn,
+})
+
+export default withRouter(connect(mapStateToProps, {logout})(NavagationBar));
