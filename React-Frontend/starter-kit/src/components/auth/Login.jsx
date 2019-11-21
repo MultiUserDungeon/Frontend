@@ -58,7 +58,7 @@ class Login extends Component {
 		//this.props.(whatever action from redux we need to use)
 		this.props.login(this.handleEmailOrUsername())
 		.then( () => {
-			this.props.history.push('/RouteChooser')
+			this.props.history.push('/game')
 		})
 	}
 
