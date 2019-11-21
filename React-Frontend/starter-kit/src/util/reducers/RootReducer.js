@@ -4,7 +4,9 @@ import {combineReducers} from 'redux';
 
 // Import all of the reducers here
 import {AuthenticationReducer} from './AuthenticationReducer';
+import {UserReducer} from './UserReducer';
 
 export default combineReducers({
-	AuthenticationReducer
+	AuthenticationReducer,
+	UserReducer,
 })
