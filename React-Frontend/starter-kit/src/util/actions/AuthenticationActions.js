@@ -36,7 +36,7 @@ export const login = (creds) => (dispatch) => {
 			localStorage.setItem('token', response.data.key);
 			
 			// logging the response data
-			console.log(localStorage.getItem.token)
+			console.log('token:' + localStorage.getItem('token'))
 
 			dispatch({
 				type: LOGIN_SUCCESS,
