@@ -4,7 +4,7 @@ import {withRouter, Link, NavLink} from 'react-router-dom';
 import {logout} from '../../util/actions/AuthenticationActions';
 
 function NavagationBar (props) {
-	console.log(props)
+	console.log('navagation bar ' + props)
 
 	return(
 		<div className='navagation_bar'>
