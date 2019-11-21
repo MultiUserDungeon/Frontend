@@ -26,7 +26,7 @@ export const ListOfPublicRoutes = () => {
 export const ListOfUserRoutes = () => {
 	return (
 		<div className='list_of_user_routes'>
-			Holy shit this is super secret stuff man
+			{console.log('rendering List Of User Routes')}
 			<PrivateRoute path='/game' component={privateIndex} />
 		</div>
 	);
