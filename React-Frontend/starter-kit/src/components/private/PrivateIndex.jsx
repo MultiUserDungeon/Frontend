@@ -1,18 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-function PrivateIndex (props) {
-	console.log('private index props ' + props.userData)
-	return (
-		<div className="private_index">
-			Private Index Lives Here, This is a private page, you must have a token in local storage to see it
-			{props.fuck}
-		</div>
+import {current_room} from '../../util/actions/UserActions';
+
+class PrivateIndex extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {  }
+	}
+
+	componentDidMount() {
+		console.log('private index is mounted ' + this.props.userData)
+		// this triggers the UserAction's (current_room) which gets information for the user
+		this.props.current_room();
+	}
+
+	render() { 
+		return (
+			<div className="private_index">
+				super private stuff B, you must be logged in ehh?
+			</div>
 		);
+	}
 }
 
 const mapStateToProps = (state) => ({
 	userData: state.AuthenticationReducer.user2
 })
 
-export default connect(mapStateToProps, {})(PrivateIndex);
+export default connect(mapStateToProps, {current_room})(PrivateIndex);
