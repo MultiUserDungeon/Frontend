@@ -5,7 +5,7 @@ import {
 } from '../actions/UserActions'
 
 const initialState = {
-    shit: 'fuck me yo',
+    test: 'some data here',
 
     startGettingRoom: false,
     getRoomSuccess: false,
@@ -25,6 +25,7 @@ export const UserReducer = (state = initialState, action) => {
             }
         
         case GET_ROOM_SUCCESS:
+            console.log('l1 ' + state.user2)
             return {
                 ...state,
                 getRoomSuccess: true,
